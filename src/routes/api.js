@@ -1,6 +1,7 @@
 import express from 'express';
 import {
     createProduct,
+    deleteProduct,
     updateProduct
 } from "../controller/product.controller.js"
 import {
@@ -12,6 +13,7 @@ const authRouter = express.Router()
 
 authRouter.post("/api/products", authMiddleware, createProduct)
 authRouter.put("/api/products/:id", authMiddleware, updateProduct)
+authRouter.delete("/api/products/:id", authMiddleware, deleteProduct)
 
 export {
     authRouter

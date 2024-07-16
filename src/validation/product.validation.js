@@ -12,3 +12,5 @@ export const updateProductValidation = Joi.object({
     price: Joi.number().positive().optional(),
     quantity: Joi.number().positive().optional(),
 });
+
+export const getIdProductValidation = Joi.number().positive().required()

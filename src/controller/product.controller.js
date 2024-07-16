@@ -42,3 +42,15 @@ export const updateProduct = async (req, res, next) => {
         next(error)
     }
 }
+
+export const deleteProduct = async (req, res, next) => {
+    try {
+        await productService.deleteProduct(req.user, req.params.id);
+
+        return res.status(200).json({
+            data: "OK"
+        })
+    } catch (error) {
+        next(error)
+    }
+}
