@@ -1,0 +1,39 @@
+{
+  "name": "marketplace-test-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest -i",
+    "dev": "node src/main.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.2",
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "joi": "^17.13.1",
+    "winston": "^3.13.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.6",
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/supertest": "^6.0.2",
+    "babel-jest": "^29.7.0",
+    "@types/winston": "^2.4.4",
+    "prisma": "^5.16.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
