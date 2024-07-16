@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "d5456332-e260-4634-82e1-6d8ad02ff588",
+		"name": "Marketplace Test Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10114532"
+	},
+	"item": [
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register - Customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Muhamad Isro\",\r\n    \"email\" : \"isro.sabanur@example.com\",\r\n    \"password\" : \"rahasia\",\r\n    \"role\" : \"CUSTOMER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/users/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Register - Merchant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Merchat 1\",\r\n    \"email\" : \"merchant@example.com\",\r\n    \"password\" : \"rahasia\",\r\n    \"role\" : \"MERCHANT\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/users/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"isro.sabanur@example.com\",\r\n    \"password\" : \"rahasia\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/users/login"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{localhost}}/api/products"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6Ik1FUkNIQU5UIiwibWVyY2hhbnRJZCI6MSwiaWF0IjoxNzIxMTMxNTYwfQ.7rpqvWGeGO51aGdw_BxHfpPTHfanFJlPTbgcLk0IWwc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Product 5\",\r\n    \"price\": 1000,\r\n    \"quantity\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/products"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6Ik1FUkNIQU5UIiwibWVyY2hhbnRJZCI6MSwiaWF0IjoxNzIxMTI0NzEwfQ.DZKLLFoyeW489Hh1WWHogyEypwaTalpDGO3PIK1dDmA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantity\": 500\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/products/4"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6Ik1FUkNIQU5UIiwibWVyY2hhbnRJZCI6MSwiaWF0IjoxNzIxMTI0NzEwfQ.DZKLLFoyeW489Hh1WWHogyEypwaTalpDGO3PIK1dDmA",
+										"type": "text"
+									}
+								],
+								"url": "{{localhost}}/api/products/3"
+							},
+							"response": []
+						},
+						{
+							"name": "Buy Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sZSI6IkNVU1RPTUVSIiwiY3VzdG9tZXJJZCI6MSwiaWF0IjoxNzIxMTMyMjE4fQ.VFBJ9g2s0olsyVwZqJN58m_7SRfNxWIj_HfWlscYWVg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\" : 1,\r\n    \"quantity\" : 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{localhost}}/api/products/buy"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Transactions Customers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6Ik1FUkNIQU5UIiwibWVyY2hhbnRJZCI6MSwiaWF0IjoxNzIxMTMxNTYwfQ.7rpqvWGeGO51aGdw_BxHfpPTHfanFJlPTbgcLk0IWwc",
+										"type": "text"
+									}
+								],
+								"url": "{{localhost}}/api/transaction/customers"
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Only can access endpoint using header authorization token"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
