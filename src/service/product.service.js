@@ -95,7 +95,7 @@ const deleteProduct = async (user, id) => {
     })
 }
 
-const validateRoleMerchant = (user) => {
+export const validateRoleMerchant = (user) => {
     if (user.role !== 'MERCHANT') {
         throw new ResponseError(403, "Access Denied!")
     }

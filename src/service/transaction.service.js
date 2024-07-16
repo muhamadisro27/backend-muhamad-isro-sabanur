@@ -11,6 +11,10 @@ import {
     validate
 } from "../validation/validation.js";
 
+import {
+    validateRoleMerchant
+} from "./product.service.js"
+
 const buyProduct = async (user, request) => {
     validateRoleCustomer(user)
 
@@ -29,7 +33,7 @@ const buyProduct = async (user, request) => {
     if (product.quantity == 0 || validateRequest.quantity > product.quantity) {
         throw new ResponseError(400, "Product stock is not available")
     }
-    
+
     await prismaClient.product.update({
         where: {
             id: validateRequest.product_id
@@ -68,10 +72,38 @@ const buyProduct = async (user, request) => {
         }
     })
 
-    console.log(new Date().toISOString())
-
     return transaction;
 
+}
+
+const getTransactionProducts = async (user) => {
+    validateRoleMerchant(user)
+
+    const transactions = await prismaClient.transaction.findMany({
+        select: {
+            product: {
+                select: {
+                    name: true,
+                }
+            },
+            customer: {
+                select: {
+                    user: {
+                        select: {
+                            name: true,
+                        }
+                    }
+                }
+            },
+            quantity: true,
+            total_price: true,
+            date: true,
+            discount: true,
+            shippingCost: true,
+        }
+    })
+
+    return transactions;
 }
 
 const validateRoleCustomer = (user) => {
@@ -82,5 +114,6 @@ const validateRoleCustomer = (user) => {
 }
 
 export default {
-    buyProduct
+    buyProduct,
+    getTransactionProducts
 }

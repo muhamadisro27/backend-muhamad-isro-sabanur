@@ -67,3 +67,26 @@ export const buyProduct = async (req, res, next) => {
         next(error)
     }
 }
+
+export const customerTransactions = async (req, res, next) => {
+    try {
+        const result = await transactionService.getTransactionProducts(req.user);
+
+        const data = result.map(r => {
+            return {
+                id: r.id,
+                product_name: r.product.name,
+                customer_name: r.customer.user.name,
+                quantity: r.quantity,
+                total_price: r.total_price,
+                date: r.date,
+                discount: r.discount,
+                shipping_cost: r.shippingCost
+            }
+        })
+
+        return res.status(200).json(data)
+    } catch (error) {
+        next(error)
+    }
+}
