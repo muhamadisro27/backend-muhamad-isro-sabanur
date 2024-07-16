@@ -1,4 +1,22 @@
 # System Requirements
 
 - Nodejs v21.4.0
-- 
+- MySQL
+
+&nbsp;
+
+# Generate Prisma ORM
+
+- npm install to install dependencies
+- npx prisma init to setup prisma instance
+- change .env file database url to "mysql://root:@localhost:3306/marketplace_db?schema=public"
+- npx prisma migrate dev to run migration
+- npx prisma generate to generate prisma client
+
+&nbsp;
+
+# Running Application
+
+- npm run dev
+- make sure the terminal showing {"level":"info","message":"app listening on http://localhost:4000"} on the console
+- app already running on local
