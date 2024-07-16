@@ -35,16 +35,17 @@ model product {
 }
 
 model transaction {
-  id           Int      @id @default(autoincrement())
-  customerId   Int
-  productId    Int
-  price        Int
-  discount     Int
-  shippingCost Int
-  quantity     Int
-  date         DateTime
-  customer     customer @relation(fields: [customerId], references: [id], map: "Transaction_customerId_fkey")
-  product      product  @relation(fields: [productId], references: [id], map: "Transaction_productId_fkey")
+  id            Int      @id @default(autoincrement())
+  customerId    Int
+  productId     Int
+  price_product Int
+  discount      Int
+  shippingCost  Int
+  quantity      Int
+  total_price   Int
+  date          DateTime @db.Timestamp(0)
+  customer      customer @relation(fields: [customerId], references: [id], map: "Transaction_customerId_fkey")
+  product       product  @relation(fields: [productId], references: [id], map: "Transaction_productId_fkey")
 
   @@index([customerId], map: "Transaction_customerId_fkey")
   @@index([productId], map: "Transaction_productId_fkey")
