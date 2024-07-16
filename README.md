@@ -20,3 +20,7 @@
 - npm run dev
 - make sure the terminal showing {"level":"info","message":"app listening on http://localhost:4000"} on the console
 - app already running on local
+
+&nbsp;
+### Notes
+- If you want to call API in collection API on postman need to add some header Authorization with value token that generated on login after register an user
