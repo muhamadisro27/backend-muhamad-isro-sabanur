@@ -7,11 +7,11 @@
 
 # Generate Prisma ORM
 
-- npm install to install dependencies
+- npm install, to install dependencies
 - add file .env
 - add database url to .env DATABASE_URL="mysql://root:@localhost:3306/marketplace_db?schema=public"
-- npx prisma migrate dev to run migration
-- npx prisma generate to generate prisma client
+- npx prisma migrate dev, to run migration
+- npx prisma generate, to generate prisma client
 
 &nbsp;
 
