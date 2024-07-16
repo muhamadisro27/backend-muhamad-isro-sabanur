@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken';
+import {
+  logger
+} from '../app/logger.js';
 
 export const authMiddleware = async (req, res, next) => {
   const token = req.get("Authorization");
@@ -11,7 +14,7 @@ export const authMiddleware = async (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, 'SECRET_KEY');
-    console.log(verified)
+    logger.info(verified)
     req.user = verified;
     next();
   } catch (err) {

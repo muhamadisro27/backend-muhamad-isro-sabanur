@@ -23,3 +23,22 @@ export const createProduct = async (req, res, next) => {
         next(error)
     }
 }
+
+export const updateProduct = async (req, res, next) => {
+    try {
+        const request = {
+            ...req.body,
+            ...{
+                id: req.params.id
+            }
+        }
+
+        const result = await productService.updateProduct(req.user, request);
+
+        return res.status(200).json({
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
+}

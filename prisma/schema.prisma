@@ -41,10 +41,11 @@ model Product {
   id           Int           @id @default(autoincrement())
   name         String
   price        Int
+  quantity     Int
   merchantId   Int
   merchant     Merchant      @relation(fields: [merchantId], references: [id])
-  quantity     Int
   transactions Transaction[]
+  deleted_at   DateTime?
 }
 
 model Transaction {
@@ -55,6 +56,7 @@ model Transaction {
   discount     Int
   shippingCost Int
   quantity     Int
+  date         DateTime
   product      Product  @relation(fields: [productId], references: [id])
   customer     Customer @relation(fields: [customerId], references: [id])
 }

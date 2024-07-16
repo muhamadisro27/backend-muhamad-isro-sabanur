@@ -1,6 +1,7 @@
 import express from 'express';
 import {
-    createProduct
+    createProduct,
+    updateProduct
 } from "../controller/product.controller.js"
 import {
     authMiddleware
@@ -10,6 +11,7 @@ import {
 const authRouter = express.Router()
 
 authRouter.post("/api/products", authMiddleware, createProduct)
+authRouter.put("/api/products/:id", authMiddleware, updateProduct)
 
 export {
     authRouter
